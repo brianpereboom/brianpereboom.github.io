@@ -15,6 +15,7 @@ pipeline {
             post {
                 success {
                     // Additional actions to perform if tests pass
+                    echo "Tests passed!"
                 }
                 failure {
                     currentBuild.result = 'FAILURE'
@@ -26,9 +27,11 @@ pipeline {
     post {
         success {
             // Trigger additional actions on success, if needed
+            echo "Post was successful!"
         }
         failure {
             // Trigger additional actions on failure, if needed
+            echo "Post failed!"
         }
     }
 }
