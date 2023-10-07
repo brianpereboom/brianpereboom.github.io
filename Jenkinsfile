@@ -25,9 +25,9 @@ pipeline {
                     echo "Tests passed!"
                 }
                 failure {
-                    currentBuild.result = 'FAILURE'
                     // Additional actions to perform if tests fail
                     echo "Tests failed!"
+                    currentBuild.result = 'FAILURE'
                 }
             }
         }
