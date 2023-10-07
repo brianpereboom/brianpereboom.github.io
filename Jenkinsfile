@@ -8,9 +8,16 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // Install dependencies and run tests (example with JavaScript and Jest)
-                sh 'npm install' // Install project dependencies
-                sh 'npm test'    // Run tests using Jest or your preferred testing framework
+                // Check if a test script exists in package.json before running tests
+                script {
+                    def hasTestScript = sh(script: 'npm run | grep test', returnStatus: true)
+                    if (hasTestScript == 0) {
+                        echo "No test script found in package.json. Skipping tests."
+                    } else {
+                        sh 'npm install' // Install project dependencies
+                        sh 'npm test'    // Run tests using Jest or your preferred testing framework
+                    }
+                }
             }
             post {
                 success {
