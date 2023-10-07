@@ -1,32 +1,34 @@
 pipeline {
     agent any
-    
     stages {
         stage('Checkout') {
             steps {
-                // Checkout the source code from the Git repository
-                checkout scm
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/yourusername/your-repo.git']]])
             }
         }
-        
-        // stage('Test') {
-        //     steps {
-        //         // Add your testing commands here.
-        //         // This could include running scripts or tools to test your static website.
-        //         // Example: Run a link checker, HTML validator, or any other testing tool.
-        //     }
-        // }
+        stage('Test') {
+            steps {
+                // Install dependencies and run tests (example with JavaScript and Jest)
+                sh 'npm install' // Install project dependencies
+                sh 'npm test'    // Run tests using Jest or your preferred testing framework
+            }
+            post {
+                success {
+                    // Additional actions to perform if tests pass
+                }
+                failure {
+                    currentBuild.result = 'FAILURE'
+                    // Additional actions to perform if tests fail
+                }
+            }
+        }
     }
-    
     post {
         success {
-            // This block is executed if the pipeline is successful
-            echo 'Testing succeeded! You can add post-testing actions here.'
+            // Trigger additional actions on success, if needed
         }
         failure {
-            // This block is executed if the pipeline fails
-            echo 'Testing failed! You can add post-failure actions here.'
+            // Trigger additional actions on failure, if needed
         }
     }
 }
-
