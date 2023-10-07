@@ -9,13 +9,13 @@ pipeline {
             }
         }
         
-        stage('Test') {
-            steps {
-                // Add your testing commands here.
-                // This could include running scripts or tools to test your static website.
-                // Example: Run a link checker, HTML validator, or any other testing tool.
-            }
-        }
+        // stage('Test') {
+        //     steps {
+        //         // Add your testing commands here.
+        //         // This could include running scripts or tools to test your static website.
+        //         // Example: Run a link checker, HTML validator, or any other testing tool.
+        //     }
+        // }
     }
     
     post {
