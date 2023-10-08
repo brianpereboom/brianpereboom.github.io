@@ -10,7 +10,7 @@ pipeline {
             steps {
                 // Check if a test script exists in package.json before running tests
                 script {
-                    def hasTestScript = sh(script: 'find . -type f -name "*test*" -exec npm run {} \;', returnStatus: true)
+                    def hasTestScript = sh(script: 'find . -type f -name "*test*" -exec npm run {} ;', returnStatus: true)
                     if (hasTestScript == 0) {
                         echo "No test script found in package.json. Skipping tests."
                     } else {
