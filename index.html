@@ -6,44 +6,50 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link href="index.css" rel="stylesheet">
+    <script src="index.js"></script>
     <title>Brian Pereboom</title>
   </head>
   <body>
-    <nav class="navbar sticky-top navbar-expand-lg">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#" onClick="document.getElementById('content-iframe').src = 'home.html';">Home</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Audio
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent">
+      <div class="container">
+          <a class="navbar-brand" href="#" onClick="loadHome()">Home</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav ml-auto">
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Audio
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <!-- Add links to Audio articles here! -->
+                      </ul>
+                  </li>
+                  <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          Other
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <li><a class="dropdown-item" href="#" onClick="loadArticle('article')">Article</a></li>
+                          <!-- Add links to Other articles here! -->
+                      </ul>
+                  </li>
               </ul>
-            </li>
-          </ul>
-        </div>
+          </div>
       </div>
     </nav>
 
-    <!-- The iframe for loading external content -->
-    <iframe id="content-iframe" src="home.html"> </iframe>
-
-    <!-- JavaScript for Loading Content into the iframe -->
-    <script>
-      // Function to load external content into the iframe
-      function loadArticle(pageName) {
-        // Construct the URL of the external HTML file
-        const externalPageURL = 'Articles/' + pageName + '.html';
-
-        // Set the src attribute of the iframe to load the external content
-        const iframe = document.getElementById('content-iframe');
-        iframe.src = externalPageURL;
-      }
-    </script>
+    <!-- Content Area -->
+    <div class="container mt-4">
+      <!-- The iframe for loading external content -->
+      <iframe id="content-iframe" class="w-100" style="height: 500px;"></iframe>
+    </div>
   </body>
 </html>

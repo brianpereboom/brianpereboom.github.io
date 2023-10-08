@@ -2,3 +2,7 @@ body, body * {
     background-color: #000000 !important;
     color: #ffffff !important;
 }
+
+.dropdown-item {
+    border: 1px solid #ffffff;
+}
