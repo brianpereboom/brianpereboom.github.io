@@ -1,8 +1,26 @@
+/* Ensure the <body> and <html> elements occupy the full viewport height */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
 body, body * {
     background-color: #000000 !important;
     color: #ffffff !important;
 }
 
+.navbar-toggler-icon {
+    background-color: #ffffff;
+}
+
 .dropdown-item {
     border: 1px solid #ffffff;
+}
+
+iframe {
+    width: 100%;
+    height: calc(100vh - 80px); /* Automatically adjust the height to fit content */
+    border: none; /* Remove iframe border */
+    display: block;
 }
