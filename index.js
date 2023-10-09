@@ -1,18 +1,21 @@
+function generateLink(url) {
+    return window.location.origin + window.location.pathname + '?page=' + encodeURIComponent(url);
+}
+
 function loadHome() {
-    document.getElementById('content-iframe').src = 'home.html'
+    document.getElementById('content-iframe').src = 'home.html';
 
     // Reset the URL to "index.html" without any query parameters
-    history.pushState({}, document.title, 'index.html');
+    history.pushState({}, document.title, '/');
 }
 
 // Function to load external content into the iframe
 function loadArticle(url) {
     // Set the src attribute of the iframe to load the external content
-    document.getElementById('content-iframe').src = url;
+    document.getElementById('content-iframe').src = 'Articles/' + url + '/';
 
     // Add current page to URL params
-    const newURL = window.location.origin + window.location.pathname + '?page=' + encodeURIComponent(url);
-    history.pushState({ page: url }, document.title, newURL);
+    history.pushState({ page: url }, document.title, generateLink(url));
 }
 
 // Function to parse the sitemap.xml file and generate the navigation menu
@@ -28,11 +31,10 @@ function generateNavbar() {
             // Create an object to store links by category
             const linksByCategory = {};
     
-            for (let i = 1; i < urlElements.length; i++) {
+            for (let i = 0; i < urlElements.length; i++) {
                 const url = urlElements[i].getElementsByTagName('loc')[0].textContent;
                 
-                const categoryMatch = url.match(/^Articles\/([^/]+)\//); // Extract category from the URL
-                console.log(url)
+                const categoryMatch = url.match(/^([^/]+)\//); // Extract category from the URL
                 
                 if (categoryMatch) {
                     const category = categoryMatch[1];
@@ -50,7 +52,7 @@ function generateNavbar() {
         
                 const dropdownToggle = document.createElement('a');
                 dropdownToggle.classList.add('nav-link', 'dropdown-toggle');
-                dropdownToggle.href = '#';
+                dropdownToggle.href = '/';
                 dropdownToggle.textContent = category;
                 dropdownToggle.setAttribute('data-bs-toggle', 'dropdown');
         
@@ -61,13 +63,12 @@ function generateNavbar() {
                     const link = document.createElement('li');
                     link.classList.add('dropdown-item');
                     const linkAnchor = document.createElement('a');
-                    linkAnchor.href = "#";
-                    pageName = linkObj.url.split('/').pop().replace(".html", "");
+                    linkAnchor.href = generateLink(linkObj.url);
+                    pageName = linkObj.url.split('/').pop();
                     linkAnchor.onclick = function () {
                         loadArticle(linkObj.url);
                         return false;
                     };
-                    console.log(pageName)
                     linkAnchor.textContent = pageName; // Get the last part of the URL
                     link.appendChild(linkAnchor);
                     dropdownMenu.appendChild(link);
