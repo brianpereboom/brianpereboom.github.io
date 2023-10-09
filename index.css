@@ -1,17 +1,6 @@
-/* Ensure the <body> and <html> elements occupy the full viewport height */
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 body, body * {
     background-color: #000000 !important;
     color: #ffffff !important;
-}
-
-.navbar-toggler-icon {
-    background-color: #ffffff;
 }
 
 .dropdown-item {
@@ -20,7 +9,25 @@ body, body * {
 
 iframe {
     width: 100%;
-    height: calc(100vh - 80px); /* Automatically adjust the height to fit content */
-    border: none; /* Remove iframe border */
-    display: block;
+    height: calc(100vh - 100px);
 }
+
+#carouselAutoplaying {
+    max-height: 75vh; /* Limit the carousel's maximum height to the viewport height */
+    overflow: hidden; /* Hide any overflow content */
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-inner, .carousel-item, .carousel-item * {
+    max-width: inherit;
+    max-height: inherit;
+    height: inherit;
+    width: inherit;
+    object-fit: cover;
+}
+
+/* Make pretty, create a proper homepage with previews of articles most recently added to sitemap.xml,
+remove content from Articles, and create readme explaining how to contribute */
+/* Add bio section for contributors where they can include links to their own portfolios/projects and links to the content they contributed */
+/* Add previews to homepage and bio section using iframe/image/carousel, and make sure they're clickable */

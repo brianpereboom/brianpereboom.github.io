@@ -16,6 +16,14 @@ function loadArticle(url) {
 
     // Add current page to URL params
     history.pushState({ page: url }, document.title, generateLink(url));
+
+    // Function to resize the iframe based on its content
+    document.getElementById('content-iframe').addEventListener('load', function() {
+        var iframe = document.getElementById('content-iframe');
+
+        // Set the iframe's height to the content's scrollHeight
+        iframe.style.height = iframe.contentWindow.document.body.scrollHeight + 100 + 'px';
+    });
 }
 
 // Function to parse the sitemap.xml file and generate the navigation menu
@@ -33,7 +41,7 @@ function generateNavbar() {
     
             for (let i = 0; i < urlElements.length; i++) {
                 const url = urlElements[i].getElementsByTagName('loc')[0].textContent;
-                
+                console.log(url)
                 const categoryMatch = url.match(/^([^/]+)\//); // Extract category from the URL
                 
                 if (categoryMatch) {
@@ -84,6 +92,9 @@ function generateNavbar() {
 }
 
 window.addEventListener('load', function() {
+    // Call the function to generate the navbar from the sitemap
+    generateNavbar();
+
     // Check URL
     const urlSearchParams = new URLSearchParams(window.location.search);
     const currentPage = urlSearchParams.get('page');
@@ -92,7 +103,4 @@ window.addEventListener('load', function() {
     } else {
         loadArticle(currentPage);
     }
-  
-    // Call the function to generate the navbar from the sitemap
-    generateNavbar();
 });

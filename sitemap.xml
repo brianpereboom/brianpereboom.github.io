@@ -2,19 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>Audio/Audio1</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>Audio/Audio2</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>Other/Other1</loc>
-    <priority>0.8</priority>
   </url>
   <url>
     <loc>Other/Other2</loc>
-    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>Meet The Creators/Brian Pereboom</loc>
   </url>
   <!-- Add more URLs for your website pages -->
 </urlset>
