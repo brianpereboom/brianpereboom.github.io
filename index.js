@@ -41,7 +41,6 @@ function generateNavbar() {
     
             for (let i = 0; i < urlElements.length; i++) {
                 const url = urlElements[i].getElementsByTagName('loc')[0].textContent;
-                console.log(url)
                 const categoryMatch = url.match(/^([^/]+)\//); // Extract category from the URL
                 
                 if (categoryMatch) {
