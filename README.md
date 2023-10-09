@@ -1,6 +1,6 @@
-# Contributing to the Brian Pereboom Static Website
+# Contributing to brianpereboom.github.com
 
-Thank you for your interest in contributing to the Brian Pereboom Static Website! We welcome your contributions to help make this website even better. Below are the steps to follow in order to contribute effectively.
+Thank you for your interest in contributing to brianpereboom.github.com! We welcome your contributions to help make this website even better. Below are the steps to follow in order to contribute effectively.
 
 ## Table of Contents
 1. [Requesting to be a Contributor](#1-requesting-to-be-a-contributor)
@@ -13,7 +13,7 @@ Thank you for your interest in contributing to the Brian Pereboom Static Website
 
 ### 1. Requesting to be a Contributor
 
-Before you can contribute to the Brian Pereboom Static Website, you need to request to be added as a contributor. Follow these steps:
+Before you can contribute, you need to request to be added as a contributor. Follow these steps:
 
 1. Visit the [GitHub repository](https://github.com/brianpereboom/brianpereboom.github.io).
 
@@ -31,9 +31,9 @@ Before you can contribute to the Brian Pereboom Static Website, you need to requ
 
 You can contribute by adding a biography or articles to the website. Here's how to do it:
 
-1. Create a new directory with the name of your article (or your name in the case of a biography) in the root directory of your forked repository.
+1. Create a new directory with the name of your article (or your name in the case of a biography) in the Articles directory of your forked repository.
 
-2. Inside this directory, create an `index.html` file and any accompanying HTML, CSS, or scripting files you need for your content.
+2. Inside this directory, create an `index.html` file and any accompanying HTML, CSS, or script files you need for your content.
 
 ### 3. Organizing Articles
 
@@ -57,7 +57,7 @@ Articles/
 
 ### 4. Updating the Sitemap
 
-To ensure your article is discoverable by search engines, you should add it to the `sitemap.xml` file in the following format:
+To ensure your article shows up in the navbar, you should add it to the `sitemap.xml` file in the following format:
 
 ```xml
 <url>
@@ -81,4 +81,4 @@ Once you have completed your article or biography and added it to the repository
 
 5. Once your PR is approved, it will be merged into the main repository, and your contribution will be live on the website.
 
-Thank you for contributing to the Brian Pereboom Static Website! Your contributions help make this website a valuable resource for our audience.
+Thank you for contributing to brianpereboom.github.com! Your contributions help make this website a valuable resource for our audience.
