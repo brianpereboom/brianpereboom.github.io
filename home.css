@@ -1,0 +1,12 @@
+#carouselAutoplaying {
+    max-width: 100vw; /* Limit the carousel's maximum width to the viewport width */
+    max-height: 90vh; /* Limit the carousel's maximum height to the viewport height */
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-inner, .carousel-inner * {
+    max-width: inherit;
+    max-height: inherit;
+    width: inherit;
+}
