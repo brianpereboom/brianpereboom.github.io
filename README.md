@@ -5,9 +5,10 @@ Thank you for your interest in contributing to brianpereboom.github.com! We welc
 ## Table of Contents
 1. [Requesting to be a Contributor](#1-requesting-to-be-a-contributor)
 2. [Creating a Biography or Articles](#2-creating-a-biography-or-articles)
-3. [Organizing Articles](#3-organizing-articles)
-4. [Updating the Sitemap](#4-updating-the-sitemap)
-5. [Submitting Your Contribution](#5-submitting-your-contribution)
+3. [Thumbnail Guidelines](#3-thumbnail-guidelines)
+4. [Organizing Articles](#4-organizing-articles)
+5. [Updating the Sitemap](#5-updating-the-sitemap)
+6. [Submitting Your Contribution](#6-submitting-your-contribution)
 
 ---
 
@@ -33,9 +34,17 @@ You can contribute by adding a biography or articles to the website. Here's how 
 
 1. Create a new directory with the name of your article (or your name in the case of a biography) in the Articles directory of your forked repository.
 
-2. Inside this directory, create an `index.html` file and any accompanying HTML, CSS, or script files you need for your content.
+2. Inside this directory, create an `index.html` file, `thumbnail.png`, and any accompanying HTML, CSS, or script files you need for your content. A thumbnail is required if you want the article to be featured on the homepage.
 
-### 3. Organizing Articles
+### 3. Thumbnail Guidelines
+
+Thumbnails provide a visual preview of your article and enhance the user experience. Please follow these guidelines for thumbnails:
+
+- Thumbnail dimensions: .
+- File format: .
+- Content: Ensure that the thumbnail represents the content of your article and is visually appealing.
+
+### 4. Organizing Articles
 
 To keep the website organized, place your biography folder in "Articles/Meet The Creators/" and article folders in the "Articles" directory in the subdirectory that best matches the topic discussed in the article.
 
@@ -55,7 +64,7 @@ Articles/
 │   │   └── script.js
 ```
 
-### 4. Updating the Sitemap
+### 5. Updating the Sitemap
 
 To ensure your article shows up in the navbar, you should add it to the `articlemap.xml` file in the following format:
 
@@ -67,7 +76,7 @@ To ensure your article shows up in the navbar, you should add it to the `article
 
 Replace `category` with the relevant category (e.g., "Meet The Creators" or the appropriate subdirectory) and `articleName` with the name of your article directory.
 
-### 5. Submitting Your Contribution
+### 6. Submitting Your Contribution
 
 Once you have completed your article or biography and added it to the repository, follow these steps to submit your contribution:
 
