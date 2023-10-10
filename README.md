@@ -57,7 +57,7 @@ Articles/
 
 ### 4. Updating the Sitemap
 
-To ensure your article shows up in the navbar, you should add it to the `sitemap.xml` file in the following format:
+To ensure your article shows up in the navbar, you should add it to the `articlemap.xml` file in the following format:
 
 ```xml
 <url>

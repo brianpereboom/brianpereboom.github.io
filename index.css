@@ -9,22 +9,20 @@ body, body * {
 
 iframe {
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 90px);
 }
 
 #carouselAutoplaying {
-    max-height: 75vh; /* Limit the carousel's maximum height to the viewport height */
-    overflow: hidden; /* Hide any overflow content */
+    max-height: 95vh; /* Limit the carousel's maximum height to the viewport height */
     display: flex;
     justify-content: center;
 }
 
-.carousel-inner, .carousel-item, .carousel-item * {
+.carousel-inner, .carousel-inner * {
     max-width: inherit;
     max-height: inherit;
     height: inherit;
     width: inherit;
-    object-fit: cover;
 }
 
 /* Make pretty, remove content from Articles, and create readme explaining how to contribute */

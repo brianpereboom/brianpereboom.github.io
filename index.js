@@ -29,7 +29,7 @@ function loadArticle(url) {
 // Function to parse the sitemap.xml file and generate the navigation menu
 function generateNavbar() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'sitemap.xml', true); // Replace with the actual path to your sitemap file
+    xhr.open('GET', 'articlemap.xml', true); // Replace with the actual path to your sitemap file
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const xmlDoc = xhr.responseXML;
