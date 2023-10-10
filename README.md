@@ -40,8 +40,8 @@ You can contribute by adding a biography or articles to the website. Here's how 
 
 Thumbnails provide a visual preview of your article and enhance the user experience. Please follow these guidelines for thumbnails:
 
-- Thumbnail dimensions: .
-- File format: .
+- Thumbnail dimensions: ANY
+- File formats: JPEG, PNG, GIF, SVG, or any which are universally supported
 - Content: Ensure that the thumbnail represents the content of your article and is visually appealing.
 
 ### 4. Organizing Articles
