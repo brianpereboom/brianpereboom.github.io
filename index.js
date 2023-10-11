@@ -1,5 +1,5 @@
-function generateLink(url) {
-    return window.location.origin + window.location.pathname + '?page=' + encodeURIComponent(url);
+function generateLink(loc) {
+    return window.location.origin + '?page=' + encodeURIComponent(loc);
 }
 
 function loadHome() {
@@ -10,12 +10,12 @@ function loadHome() {
 }
 
 // Function to load external content into the iframe
-function loadArticle(url) {
+function loadArticle(loc) {
     // Set the src attribute of the iframe to load the external content
-    document.getElementById('content-iframe').src = 'Articles/' + url + '/';
+    document.getElementById('content-iframe').src = 'Articles/' + loc + '/';
 
     // Add current page to URL params
-    history.pushState({ page: url }, document.title, generateLink(url));
+    history.pushState({ page: loc }, document.title, generateLink(loc));
 
     // Function to resize the iframe based on its content
     document.getElementById('content-iframe').addEventListener('load', function() {
@@ -40,15 +40,15 @@ function generateNavbar() {
             const linksByCategory = {};
     
             for (let i = 0; i < urlElements.length; i++) {
-                const url = urlElements[i].getElementsByTagName('loc')[0].textContent;
-                const categoryMatch = url.match(/^([^/]+)\//); // Extract category from the URL
+                const loc = urlElements[i].getElementsByTagName('loc')[0].textContent;
+                const categoryMatch = loc.match(/^([^/]+)\//); // Extract category from the URL
                 
                 if (categoryMatch) {
                     const category = categoryMatch[1];
                     if (!linksByCategory[category]) {
                         linksByCategory[category] = [];
                     }
-                    linksByCategory[category].push({ url });
+                    linksByCategory[category].push({ loc });
                 }
             }
     
@@ -70,10 +70,10 @@ function generateNavbar() {
                     const link = document.createElement('li');
                     link.classList.add('dropdown-item');
                     const linkAnchor = document.createElement('a');
-                    linkAnchor.href = generateLink(linkObj.url);
-                    pageName = linkObj.url.split('/').pop();
+                    linkAnchor.href = generateLink(linkObj.loc);
+                    pageName = linkObj.loc.split('/').pop();
                     linkAnchor.onclick = function () {
-                        loadArticle(linkObj.url);
+                        loadArticle(linkObj.loc);
                         return false;
                     };
                     linkAnchor.textContent = pageName;
