@@ -10,7 +10,7 @@ function generateCarousel(viewportWidth, viewportHeight) {
             const xmlDoc = xhr.responseXML;
             const urlElements = Array.from(xmlDoc.getElementsByTagName('url'));
 
-            urlElements.sort(() => Math.random());
+            urlElements.sort(() => Math.random() - 0.5);
 
             const carousel = document.getElementById('carouselAutoplaying').children[0];
     
