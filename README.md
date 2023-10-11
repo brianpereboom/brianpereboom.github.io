@@ -36,7 +36,7 @@ You can contribute by adding a biography or articles to the website. Here's how 
 
 2. Inside this directory, create an `index.html` file, `thumbnail.png`, and any accompanying HTML, CSS, or script files you need for your content. A thumbnail is required if you want the article to be featured on the homepage.
 
-3. Your biography may contain links to your articles and external projects.
+3. Your biography may contain links to your articles, external projects, and social media.
 
 ### 3. Thumbnail Guidelines
 
@@ -48,13 +48,13 @@ Thumbnails provide a visual preview of your article and enhance the user experie
 
 ### 4. Organizing Articles
 
-To keep the website organized, place your biography folder in "Articles/Meet The Creators/" and article folders in the "Articles" directory in the subdirectory that best matches the topic discussed in the article.
+To keep the website organized, place your biography folder in "Articles/Meet Our Creators/" and article folders in the "Articles" directory in the subdirectory that best matches the topic discussed in the article or create a new subdirectory.
 
 For example, if your article is about web development, you could create a directory structure like this:
 
 ```
 Articles/
-├── Meet The Creators/
+├── Meet Our Creators/
 │   ├── YourName/
 │   │   ├── index.html
 │   │   ├── styles.css
@@ -76,7 +76,7 @@ To ensure your article shows up in the navbar, you should add it to the `article
 </url>
 ```
 
-Replace `category` with the relevant category (e.g., "Meet The Creators" or the appropriate subdirectory) and `articleName` with the name of your article directory.
+Replace `category` with the relevant category (e.g., "Meet Our Creators" or the appropriate subdirectory) and `articleName` with the name of your article directory.
 
 ### 6. Submitting Your Contribution
 

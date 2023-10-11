@@ -29,7 +29,7 @@ function loadArticle(url) {
 // Function to parse the sitemap.xml file and generate the navigation menu
 function generateNavbar() {
     const xhr = new XMLHttpRequest();
-    xhr.open('GET', 'articlemap.xml', true); // Replace with the actual path to your sitemap file
+    xhr.open('GET', 'articlemap.xml', true);
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const xmlDoc = xhr.responseXML;
@@ -76,7 +76,7 @@ function generateNavbar() {
                         loadArticle(linkObj.url);
                         return false;
                     };
-                    linkAnchor.textContent = pageName; // Get the last part of the URL
+                    linkAnchor.textContent = pageName;
                     link.appendChild(linkAnchor);
                     dropdownMenu.appendChild(link);
                 });
