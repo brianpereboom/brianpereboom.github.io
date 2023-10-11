@@ -36,11 +36,13 @@ You can contribute by adding a biography or articles to the website. Here's how 
 
 2. Inside this directory, create an `index.html` file, `thumbnail.png`, and any accompanying HTML, CSS, or script files you need for your content. A thumbnail is required if you want the article to be featured on the homepage.
 
+3. Your biography may contain links to your articles and external projects.
+
 ### 3. Thumbnail Guidelines
 
 Thumbnails provide a visual preview of your article and enhance the user experience. Please follow these guidelines for thumbnails:
 
-- Thumbnail dimensions: ANY, but small images will not scale to fit large devices.
+- Thumbnail dimensions: ANY, images will scale up without clipping or changing the aspect ratio.
 - File formats: JPEG, PNG, GIF, SVG, or any which are universally supported.
 - Content: Ensure that the thumbnail represents the content of your article and is visually appealing.
 

@@ -1,24 +1,37 @@
-nav {
-    height: 5vh;
-    margin: 0vh;
-    padding: 5vh
-}
-
 body, body * {
+    margin: 0;
+    padding: 0;
     background-color: #000000 !important;
     color: #ffffff !important;
+}
+
+.fit-window {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+nav {
+    height: 10%;
 }
 
 .dropdown-item {
     border: 1px solid #ffffff;
 }
 
-iframe {
+.iframe-container {
+    flex: 1;
     width: 100%;
-    height: 90vh;
+    display: flex;
+    flex-direction: column;
 }
 
-/* Make pretty, remove content from Articles, and create readme explaining how to contribute */
-/* Add bio section for contributors where they can include links to their own portfolios/projects and links to the content they contributed */
-/* Add previews of articles most recently added to sitemap.xml to homepage and bio pages using iframe/image/carousel, and make sure they're clickable */
+iframe {
+    flex: 1;
+    width: 100%;
+}
+
+
+/* Make pretty and remove content from Articles */
+/* Add previews of articles most recently added to sitemap.xml to the carousel, and make sure they're clickable */
 /* Link to github doesn't open properly. Should automatically open in a new tab when clicked instead of trying (and failing) to open in the iframe */

@@ -1,12 +1,40 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: calc(100% - 25px);
+}
+
 #carouselAutoplaying {
-    max-width: 100vw; /* Limit the carousel's maximum width to the viewport width */
-    max-height: 90vh; /* Limit the carousel's maximum height to the viewport height */
+    width: 100vw;
+    height: inherit; /* Adjust the height of the carousel to fit within the iframe */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
 }
 
 .carousel-inner, .carousel-inner * {
-    max-width: inherit;
-    max-height: inherit;
-    width: inherit;
+    width: 100%; /* Use 100% width for elements inside the carousel */
+    height: 100%; /* Use 100% height for elements inside the carousel */
+    margin: 0;
+    padding: 0;
+}
+
+.carousel-image {
+    object-fit: contain;
+    margin: 0;
+    padding: 0;
+}
+
+.contributor-instructions {
+    max-height: 25px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+.contributor-instructions > p {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
 }
