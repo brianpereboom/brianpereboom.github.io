@@ -31,7 +31,7 @@ function generateCarousel(viewportWidth, viewportHeight) {
 
                     const imageDiv = document.createElement('div');
                     imageDiv.classList.add('carousel-item');
-                    if (i === 0) imageDiv.classList.add('active');
+                    if (!carousel.childElementCount) imageDiv.classList.add('active');
                     
                     const imageFile = imageFileElement.textContent;
                     image.src = `Articles/${loc}/${imageFile}`;
