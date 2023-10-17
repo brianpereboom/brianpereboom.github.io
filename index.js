@@ -103,3 +103,9 @@ window.addEventListener('load', function() {
         loadArticle(currentPage);
     }
 });
+
+$(document).ready(function() {
+    $('.navbar-toggler').on('click', function() {
+      $('.navbar-collapse').toggleClass('show');
+    });
+  });
