@@ -34,7 +34,7 @@ You can contribute by adding a biography or articles to the website. Here's how 
 
 1. Create a new directory with the name of your article (or your name in the case of a biography) in the Articles directory of your forked repository.
 
-2. Inside this directory, create an `index.html` file, `thumbnail.png`, and any accompanying HTML, CSS, or script files you need for your content. A thumbnail is required if you want the article to be featured on the homepage.
+2. Inside this directory, create an `index.html` file, `thumbnail.png`, and any accompanying HTML, CSS, or script files you need for your content. You can use the template located at ExampleCategory/ExampleArticle/index.html as a starting point for your article. A thumbnail is required if you want the article to be featured on the homepage.
 
 3. Your biography may contain links to your articles, external projects, and social media.
 
@@ -71,8 +71,15 @@ Articles/
 To ensure your article shows up in the navbar, you should add it to the `articlemap.xml` file in the following format:
 
 ```xml
+<!-- Article template -->
 <url>
-  <loc>category/articleName</loc>
+  <loc>Category/Title</loc>
+  <image>(optional)image.png</image>
+</url>
+
+<!-- Biography template -->
+<url>
+  <loc>Meet Our Creators/Name</loc>
 </url>
 ```
 

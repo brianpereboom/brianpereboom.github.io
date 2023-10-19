@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>Audio/Audio1</loc>
-    <image>image1.jpg</image>
-  </url>
-  <url>
-    <loc>Audio/Audio2</loc>
-    <image>image2.jpg</image>
-  </url>
-  <url>
-    <loc>Other/Other1</loc>
-    <image>image3.jpg</image>
-  </url>
-  <url>
-    <loc>Other/Other2</loc>
-    <image>image4.png</image>
+    <loc>ExampleCategory/ExampleArticle</loc>
   </url>
   <url>
     <loc>Meet Our Creators/Brian Pereboom</loc>
   </url>
-  <!-- Add more URLs for your website pages -->
+<!-- Article template -->
+<!--
+  <url>
+    <loc>Category/Title</loc>
+    <image>(optional)image.png</image>
+  </url>
+-->
+
+<!-- Biography template -->
+<!--
+  <url>
+    <loc>Meet Our Creators/Name</loc>
+  </url>
+-->
 </urlset>
