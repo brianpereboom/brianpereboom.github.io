@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="style.css">
+        <link href="../../../index.css" rel="stylesheet">
+        <title>From Sync to Async</title>
+    </head>
+    <body>
+        <main>
+            <article>
+                <div class="head">
+                    <h1>From Sync to Async</h1>
+                    <h3>Understanding JavaScript's Event Loop</h3>
+                    <a href="https://www.linkedin.com/in/amish-khan/"><p>by Amish Khan</p></a>
+
+                </div>
+                <div class="image">
+                    <img src="images/Javascript-thumbnail.png" alt="">
+                </div>
+                <div class="text">
+                        
+                            Today we will be talking about how javascript works Under the Hood.This article will mainly cover about event loop.
+                            It covers a part of ongoing 100daysofjavascript challenge on linkedIn for more such concept feel free to connect with me <a href="https://www.linkedin.com/in/amish-khan/">here</a> I will be more than happy to share my thoughts😊.
+                            <br>
+                            <h3>Why Event Loop</h3>
+                            JavaScript is a single-threaded language, meaning that it can executes only one task at a time  This might potentially lead to blocking execution if one task takes a significant amount of time to complete.
+                            fortunately JavaScript event loop enables it to execute such task without blocking the main thread making it a non-blocking language.
+                            To further undertstand what event loop is we need to under stand its architecture: <br>
+                            1. Call stack <br>
+                            2. Web API <br>
+                            3. Event Queue <br>
+                            
+                        <h3>Call Stack</h3>
+                            Call Stack maintains the track of currently executing functions. It is a stack so it performs LIFO (Last In First Out) operations this means that the last function called is 
+                            at the top of the Call stack. <br>
+                            when the function is called it get pushed into the call stack. After the fuction is completed it get popped off the stack so that next function can execute.<br>
+                            Call stack is Synchronous in nature so the function at the top needs to complete before calling the next function. <br>
+                            <h3> Web API</h3>
+                            Web APIs are the functions and methods that are not the part of the JavaScript language but are provided by the web browser or JavaScript runtime enviroment(ex nodeJS)
+                            The execution of these function are done outside the JavaScript.
+                            setTimeOut() and fetch() are some of the exaples of Web API.  <br>
+                            <h3>Event Queue</h3>
+                            Whenever an Asynchronous task like setTimeOut() is done it returns a callback this callback doesnot directly pushed into the Call stack but instead it goes inside Event Queue. <br>
+                            Event Queue maintains all the callbacks provided by the Asynchronous function in FIFO(First In First Out) principle.
+                            <h3>Event loop</h3>
+                            Now we know that after the execution of Asynchronous task its provided callback does not directly goes into call stack but moves into the event queue but in order to completly execute a function must go in call stack.
+                            So when will this callback moves from event queue to call stack? <br>
+                            This is where Event Loop comes into the picture. It continously moniter the call stack and Whenever the stack is empty the callback is pushed into it. <br>
+                            This whole process allows JavaScript to run Asynchronous task without blocking the main thread.
+                            <br>
+                            Event Loop is quite an intresting topic but might be difficult to undertstand at first You can click <a href="http://latentflip.com/loupe/?code=JC5vbignYnV0dG9uJywgJ2NsaWNrJywgZnVuY3Rpb24gb25DbGljaygpIHsKICAgIHNldFRpbWVvdXQoZnVuY3Rpb24gdGltZXIoKSB7CiAgICAgICAgY29uc29sZS5sb2coJ1lvdSBjbGlja2VkIHRoZSBidXR0b24hJyk7ICAgIAogICAgfSwgMjAwMCk7Cn0pOwoKY29uc29sZS5sb2coIkhpISIpOwoKc2V0VGltZW91dChmdW5jdGlvbiB0aW1lb3V0KCkgewogICAgY29uc29sZS5sb2coIkNsaWNrIHRoZSBidXR0b24hIik7Cn0sIDUwMDApOwoKY29uc29sZS5sb2coIldlbGNvbWUgdG8gbG91cGUuIik7!!!PGJ1dHRvbj5DbGljayBtZSE8L2J1dHRvbj4%3D">here</a>
+                            to Check its working by philip roberts
+                            <div class="image">
+                                <img src="images/Event Loop.png" alt="">
+                            </div>
+                            <h3>Conclusion</h3>
+                            Asynchronous nature of JavaScript is achieved through event loop. Hence Event Loop is sometimes called heart of javascript and it is important to undertstand because it reveales the magic of Handling async task.
+                            <br>
+                            <h3>Socials</h3>   
+                            If you Like the above content you can find me on:
+                            <br>
+                            <a href="https://www.linkedin.com/in/amish-khan/" class="fa fa-linkedin"> Amish Khan</a>
+                            <br>
+                            <a href="https://twitter.com/Amishk7618" class="fa fa-twitter"> @Amishk7618</a>
+                            
+                </div>
+            </article>
+        </main>
+    </body>
+</html>

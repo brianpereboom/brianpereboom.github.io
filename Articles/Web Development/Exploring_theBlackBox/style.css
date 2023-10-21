@@ -1,0 +1,37 @@
+.head{
+    text-align: center;
+    margin-top: 50px;
+}
+.image{
+    width: 48%;
+    margin: 63px auto;
+}
+
+.image>img{
+    width: 100%;
+}
+.text{
+    width: 60%;
+    margin: auto;
+    font-size: 18px;
+}
+.text>h3{
+    margin: 12px 0px;
+}
+.fa {
+    padding: 0px;
+    font-size: 20px;
+    width: 150px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+    background: #007bb5;
+  }
+.fa-linkedin {
+    color: white;
+  }
+  
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+  }
