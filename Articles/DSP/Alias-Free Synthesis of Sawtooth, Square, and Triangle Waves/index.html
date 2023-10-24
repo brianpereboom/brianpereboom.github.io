@@ -50,7 +50,6 @@
                         <canvas id="illustration6"></canvas>
                     </div>
                 </div>
-                <p>In order to rigorously represent the sawtooth and triangle waves such that \(\lim_{H\to\infty}\) approaches the namesake sawtooth and triangle shapes, the terms should have alternating sign. This only affects the phase of each harmonic, which I argue has little relevance for audio in most contexts.</p>
             </div>
             <h3>Optimizing the Alias-Free Method \(\mathcal{O}(1)\)</h3>
             <div class="article-section">
@@ -76,7 +75,7 @@
                     <div class="col-md-12 equation">Sawtooth: \(2f(\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi{Ht})}{\sin(\phi{t})}dt}-x)\)</div>
                     <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi(H-1)t)}{\sin(2\phi{t})}dt}\)</div>
                     <div class="col-md-12 equation">Triangle: \(-4f\int_{0}^{x}{Square(t)dt}\)</div>
-                    <p>We are left with five sine functions and three integrals. It is possible to calculate the integrals directly, but this requires functions which may not be readily available in every language. Therefore, we will opt for numerical integration.</p>
+                    <p>We are left with five sine functions and three integrals. It is possible to derive exact formulae, but this requires functions which may not be readily available in every programming language. Therefore, we will opt for numerical integration.</p>
                     <div class="row">
                         <div class="col-md-4">
                             <label for="illustration7">Sawtooth</label>
@@ -91,7 +90,7 @@
                             <canvas id="illustration9"></canvas>
                         </div>
                     </div>
-                    <p>It looks like we were successful, but there are tradeoffs. This method is not as efficient as the first despite being \(\mathcal{O}(1)\), and the numerical integration causes DC drift. However, the drift can be attenuated by using a high pass filter or completely eliminated by calculating the integrals directly. I intend to publish articles covering these topics in the future.</p>
+                    <p>It looks like we were successful, but there are tradeoffs. This method is not as efficient as the first despite being \(\mathcal{O}(1)\). However, this is about as efficient as it can get. The numerical integration also causes DC drift which can be attenuated by <a href="https://en.wikipedia.org/wiki/Oversampling" target="_blank">oversampling</a> or using a <a href="https://en.wikipedia.org/wiki/High-pass_filter" target="_blank">high pass filter</a> or completely eliminated by calculating the integrals directly. I intend to publish articles covering these topics in the future.</p>
                 </ol>
             </div>
         </article>
