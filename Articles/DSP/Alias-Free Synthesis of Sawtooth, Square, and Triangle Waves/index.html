@@ -56,25 +56,25 @@
                 <ol>
                     <h4><li>Substitution</li></h4>
                     <p>In order to simplify the problem, we will express all sine functions as complex exponential functions. Furthermore, we can substitute \(\phi=2\pi{f}\).</p>
-                    <div class="col-md-12">Sawtooth: \(\frac{1}{\pi{i}}\sum_{n=1}^{H}{\frac{e^{\phi{i}nt}-e^{-\phi{i}nt}}{n}}\)</div>
-                    <div class="col-md-12">Square: \(\frac{2}{\pi{i}}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}-e^{-\phi{i}mt}}{m}}\)</div>
-                    <div class="col-md-12">Triangle: \(\frac{4}{\pi^2}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}+e^{-\phi{i}mt}}{m^2}}\)</div>
+                    <div class="col-md-12 equation">Sawtooth: \(\frac{1}{\pi{i}}\sum_{n=1}^{H}{\frac{e^{\phi{i}nt}-e^{-\phi{i}nt}}{n}}\)</div>
+                    <div class="col-md-12 equation">Square: \(\frac{2}{\pi{i}}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}-e^{-\phi{i}mt}}{m}}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(\frac{4}{\pi^2}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}+e^{-\phi{i}mt}}{m^2}}\)</div>
                     <p>Demonstrating the equivalence of these new formulae to the ones presented in the previous section is a task left for the reader.</p>
                     <h4><li>Optimization</li></h4>
                     <p>The previous method is inefficient due to the summation represented by the \(\sum\) symbol. This can be eliminated by taking the integral of the derivative of each formula in terms of \(t\), twice in the case of the triangle wave.</p>
-                    <div class="col-md-12">Sawtooth: \(2f\int_{0}^{x}{\sum_{n=1}^{H}{e^{\phi{i}nt}+e^{-\phi{i}nt}}dt}\)</div>
-                    <div class="col-md-12">Square: \(4f\int_{0}^{x}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}mt}+e^{-\phi{i}mt}}dt}\)</div>
-                    <div class="col-md-12">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}m\tau}+e^{-\phi{i}m\tau}}d\tau}dt}\)</div>
-                    <p>Then replace the summation with the generating function for the geometric series. In order to simplify the process, I will assume \(H\in{2\mathbb{N}}\).</p>
-                    <div class="col-md-12">Sawtooth: \(2f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-\phi{i}t}-1}dt}\)</div>
-                    <div class="col-md-12">Square: \(4f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{2\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-2\phi{i}t}-1}dt}\)</div>
-                    <div class="col-md-12">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\frac{e^{\phi{i}(H+1)\tau}-e^{\phi{i}\tau}}{e^{2\phi{i}\tau}-1}+\frac{e^{-\phi{i}(H+1)\tau}-e^{-\phi{i}\tau}}{e^{-2\phi{i}\tau}-1}d\tau}dt}=-4f\int_{0}^{x}{Square(t)dt}\)</div>
+                    <div class="col-md-12 equation">Sawtooth: \(2f\int_{0}^{x}{\sum_{n=1}^{H}{e^{\phi{i}nt}+e^{-\phi{i}nt}}dt}\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}mt}+e^{-\phi{i}mt}}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}m\tau}+e^{-\phi{i}m\tau}}d\tau}dt}\)</div>
+                    <p>Then replace the summation with the generating function for the geometric series. In order to make simplify the process, I will assume \(H\in{2\mathbb{N}}\).</p>
+                    <div class="col-md-12 equation">Sawtooth: \(2f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-\phi{i}t}-1}dt}\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{2\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-2\phi{i}t}-1}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\frac{e^{\phi{i}(H+1)\tau}-e^{\phi{i}\tau}}{e^{2\phi{i}\tau}-1}+\frac{e^{-\phi{i}(H+1)\tau}-e^{-\phi{i}\tau}}{e^{-2\phi{i}\tau}-1}d\tau}dt}=-4f\int_{0}^{x}{Square(t)dt}\)</div>
                     <p>Since the formula for the triangle wave is equivalent to \(-4f\int_{0}^{x}{Square(t)dt}\), we can optimize further by not performing the same calculations twice.</p>
                     <h4><li>Implementation</li></h4>
                     <p>We have eliminated the inefficient summation, but some languages do not have native support for complex numbers, so we will modify the formulae to avoid complex numbers. Additional substitutions may be made.</p>
-                    <div class="col-md-12">Sawtooth: \(2f(\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi{Ht})}{\sin(\phi{t})}dt}-x)\)</div>
-                    <div class="col-md-12">Square: \(4f\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi(H-1)t)}{\sin(2\phi{t})}dt}\)</div>
-                    <div class="col-md-12">Triangle: \(-4f\int_{0}^{x}{Square(t)dt}\)</div>
+                    <div class="col-md-12 equation">Sawtooth: \(2f(\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi{Ht})}{\sin(\phi{t})}dt}-x)\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi(H-1)t)}{\sin(2\phi{t})}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-4f\int_{0}^{x}{Square(t)dt}\)</div>
                     <p>We are left with five sine functions and three integrals. It is possible to derive exact formulae, but this requires functions which may not be readily available in every programming language. Therefore, we will opt for numerical integration.</p>
                     <div class="row">
                         <div class="col-md-4">
