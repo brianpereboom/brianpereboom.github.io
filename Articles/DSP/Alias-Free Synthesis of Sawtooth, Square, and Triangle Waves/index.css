@@ -1,9 +1,13 @@
-body {
-    margin: 100px;
+article{
+  padding: 3px 10px;
 }
 
 .article-section {
     margin-inline: 25px;
+}
+
+.col-md-6>canvas{
+    height: 30px;
 }
 
 label {
@@ -23,4 +27,21 @@ label {
 .code-block * {
     font-family: "Courier New", monospace;
     color: #ffffff;
+}
+
+ol, ul {
+    padding-left: 1rem;
+}
+
+.equation{
+    
+        overflow: auto;
+        height: 5rem;
+    
+}
+
+@media screen and (max-width: 480px) {
+    .col-md-4>canvas {
+        height: 30px;
+    }
 }

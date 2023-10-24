@@ -2,8 +2,11 @@
     text-align: center;
     margin-top: 50px;
 }
+.head>h1{
+    margin: 19px 0px;
+}
 .image{
-    width: 48%;
+    width: 80%;
     margin: 63px auto;
 }
 
@@ -11,7 +14,7 @@
     width: 100%;
 }
 .text{
-    width: 60%;
+    
     margin: auto;
     font-size: 18px;
 }
