@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+        <link rel="stylesheet" href="index.css">
+        <title>Alias-Free Synthesis of Sawtooth, Square, and Triangle Waves</title>
+    </head>
+    <body>
+        <article>
+            <h1>Alias-Free Digital Synthesis of Sawtooth, Square, and Triangle Waves</h1>
+            <p>By <a href="http://brianpereboom.github.io/?page=Meet%20Our%20Creators%2FBrian%20Pereboom" target="_parent">Brian Pereboom</a></p>
+            <div class="article-section">
+                <p>In this article, I will compare methods of producing sawtooth, square, and triangle waveforms based on efficiency and quality. The third method is one which I derived in order to combine the efficiency of the first method and the quality of the second method.</p><aside>For comparison, I will represent the computational complexity of each method in respect to the number of harmonics (H) produced below 22050Hz.</aside>
+            </div>
+            <h2>The Conventional Method \(\mathcal{O}(1)\)</h2>
+            <div class="article-section">
+                <p>The conventional method for generating sawtooth, square, and triangle waves is to simply generate the shapes. While this is the most efficient method, it results in <a href="https://en.wikipedia.org/wiki/Nyquist_frequency">aliasing</a>.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="illustration1">Sawtooth</label>
+                        <canvas id="illustration1"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="illustration2">Square</label>
+                        <canvas id="illustration2"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="illustration3">Triangle</label>
+                        <canvas id="illustration3"></canvas>
+                    </div>
+                </div>
+            </div>
+            <h2>The Additive Method \(\mathcal{O}(H)\)</h2>
+            <div class="article-section">
+                <p>The most basic method for producing an alias-free waveform is to simply generate a sine wave for each harmonic and add them together. This accomplishes our goal, but it is the least efficient method.</p>
+                <div class="row">
+                    <div class="col-md-4">
+                        <label for="illustration4">Sawtooth: \(\frac{2}{\pi}\sum_{n=1}^{H}{\frac{\sin(2\pi{fnt})}{n}}\)</label>
+                        <canvas id="illustration4"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="illustration5">Square: \(\frac{4}{\pi}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{\sin(2\pi{fmt})}{m}}\)</label>
+                        <canvas id="illustration5"></canvas>
+                    </div>
+                    <div class="col-md-4">
+                        <label for="illustration6">Triangle: \(\frac{8}{\pi^2}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{\cos(2\pi{fmt})}{m^2}}\)</label>
+                        <canvas id="illustration6"></canvas>
+                    </div>
+                </div>
+            </div>
+            <h3>Optimizing the Alias-Free Method \(\mathcal{O}(1)\)</h3>
+            <div class="article-section">
+                <ol>
+                    <h4><li>Substitution</li></h4>
+                    <p>In order to simplify the problem, we will express all sine functions as complex exponential functions. Furthermore, we can substitute \(\phi=2\pi{f}\).</p>
+                    <div class="col-md-12 equation">Sawtooth: \(\frac{1}{\pi{i}}\sum_{n=1}^{H}{\frac{e^{\phi{i}nt}-e^{-\phi{i}nt}}{n}}\)</div>
+                    <div class="col-md-12 equation">Square: \(\frac{2}{\pi{i}}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}-e^{-\phi{i}mt}}{m}}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(\frac{4}{\pi^2}\sum_{m\in{2\mathbb{N}-1}}^{H}{\frac{e^{\phi{i}mt}+e^{-\phi{i}mt}}{m^2}}\)</div>
+                    <p>Demonstrating the equivalence of these new formulae to the ones presented in the previous section is a task left for the reader.</p>
+                    <h4><li>Optimization</li></h4>
+                    <p>The previous method is inefficient due to the summation represented by the \(\sum\) symbol. This can be eliminated by taking the integral of the derivative of each formula in terms of \(t\), twice in the case of the triangle wave.</p>
+                    <div class="col-md-12 equation">Sawtooth: \(2f\int_{0}^{x}{\sum_{n=1}^{H}{e^{\phi{i}nt}+e^{-\phi{i}nt}}dt}\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}mt}+e^{-\phi{i}mt}}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\sum_{m\in{2\mathbb{N}-1}}^{H}{e^{\phi{i}m\tau}+e^{-\phi{i}m\tau}}d\tau}dt}\)</div>
+                    <p>Then replace the summation with the generating function for the geometric series. In order to make simplify the process, I will assume \(H\in{2\mathbb{N}}\).</p>
+                    <div class="col-md-12 equation">Sawtooth: \(2f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-\phi{i}t}-1}dt}\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\frac{e^{\phi{i}(H+1)t}-e^{\phi{i}t}}{e^{2\phi{i}t}-1}+\frac{e^{-\phi{i}(H+1)t}-e^{-\phi{i}t}}{e^{-2\phi{i}t}-1}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-16f^2\int_{0}^{x}{\int_{0}^{t}{\frac{e^{\phi{i}(H+1)\tau}-e^{\phi{i}\tau}}{e^{2\phi{i}\tau}-1}+\frac{e^{-\phi{i}(H+1)\tau}-e^{-\phi{i}\tau}}{e^{-2\phi{i}\tau}-1}d\tau}dt}=-4f\int_{0}^{x}{Square(t)dt}\)</div>
+                    <p>Since the formula for the triangle wave is equivalent to \(-4f\int_{0}^{x}{Square(t)dt}\), we can optimize further by not performing the same calculations twice.</p>
+                    <h4><li>Implementation</li></h4>
+                    <p>We have eliminated the inefficient summation, but some languages do not have native support for complex numbers, so we will modify the formulae to avoid complex numbers. Additional substitutions may be made.</p>
+                    <div class="col-md-12 equation">Sawtooth: \(2f(\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi{Ht})}{\sin(\phi{t})}dt}-x)\)</div>
+                    <div class="col-md-12 equation">Square: \(4f\int_{0}^{x}{\frac{\sin(\phi(H+1)t)+\sin(\phi(H-1)t)}{\sin(2\phi{t})}dt}\)</div>
+                    <div class="col-md-12 equation">Triangle: \(-4f\int_{0}^{x}{Square(t)dt}\)</div>
+                    <p>We are left with five sine functions and three integrals. It is possible to derive exact formulae, but this requires functions which may not be readily available in every programming language. Therefore, we will opt for numerical integration.</p>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="illustration7">Sawtooth</label>
+                            <canvas id="illustration7"></canvas>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="illustration8">Square</label>
+                            <canvas id="illustration8"></canvas>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="illustration9">Triangle</label>
+                            <canvas id="illustration9"></canvas>
+                        </div>
+                    </div>
+                    <p>It looks like we were successful, but there are tradeoffs. This method is not as efficient as the first despite being \(\mathcal{O}(1)\). However, this is about as efficient as it can get. The numerical integration also causes DC drift which can be attenuated by <a href="https://en.wikipedia.org/wiki/Oversampling" target="_blank">oversampling</a> or using a <a href="https://en.wikipedia.org/wiki/High-pass_filter" target="_blank">high pass filter</a> or completely eliminated by calculating the integrals directly. I intend to publish articles covering these topics in the future.</p>
+                </ol>
+            </div>
+        </article>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous" onload="renderMathInElement(document.body, { displayMode: false });"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
