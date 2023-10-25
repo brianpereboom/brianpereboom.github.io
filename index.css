@@ -1,8 +1,8 @@
 body, body * {
     margin: 0;
     padding: 0;
-    background-color: #000000 !important;
-    color: #ffffff !important;
+    background-color: #f0f0f0 !important;
+    color: #333333 !important;
 }
 
 .fit-window {
@@ -13,18 +13,27 @@ body, body * {
 
 nav {
     height: 10%;
+    background-color: #100020;
+    color: #ffffff;
 }
 
 .dropdown-item {
-    border: 1px solid #ffffff;
+    border: 1px solid #e0e0e0;
+    background-color: #ffffff;
+    color: #333333;
 }
 
 .iframe-container {
     flex: 1;
     display: flex;
     flex-direction: column;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
 }
 
 iframe {
     flex: 1;
+    border: none;
+    border-radius: 10px;
 }
