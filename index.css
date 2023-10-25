@@ -1,7 +1,7 @@
 body, body * {
     margin: 0;
     padding: 0;
-    background-color: #000000 !important;
+  background-color: #100020 !important;
     color: #ffffff !important;
 }
 
@@ -13,10 +13,13 @@ body, body * {
 
 nav {
     height: 10%;
+    border-bottom: 1px solid #ffffff;
+    border-radius: 5px;
 }
 
 .dropdown-item {
     border: 1px solid #ffffff;
+    border-radius: 5px;
 }
 
 .iframe-container {
@@ -27,4 +30,5 @@ nav {
 
 iframe {
     flex: 1;
+    border-radius: 5px;
 }
