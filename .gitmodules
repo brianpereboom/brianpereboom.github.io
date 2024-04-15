@@ -1,3 +1,6 @@
 [submodule "cintel-04-local"]
 	path = cintel-04-local
 	url = https://github.com/brianpereboom/cintel-04-local.git
+[submodule "cintel-07-tdash"]
+	path = cintel-07-tdash
+	url = https://github.com/brianpereboom/cintel-07-tdash
